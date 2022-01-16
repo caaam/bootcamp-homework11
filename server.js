@@ -16,19 +16,14 @@ const writeToFile = (destination, content) =>
     fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
         err ? console.error(err) : fs.readFile(destination, (err, data) => {
             if (err) throw (err);
-            console.log(JSON.parse(data));
-            console.log("laststop");
-            
         })
     );
 
 const readAndAppend = (content, file) => {
-    console.log('TWO');
     fs.readFile(file, 'utf8', (err, data) => {
         if (err) {
             console.error(err);
         } else {
-            console.log('THREE');
             const parsedData = JSON.parse(data);
             parsedData.push(content);
             writeToFile(file, parsedData);
@@ -53,8 +48,6 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-    console.log("FOUR");
-
     const { title, text } = req.body;
 
     if (title && text) {
@@ -72,7 +65,6 @@ app.post('/api/notes', (req, res) => {
         };
 
         res.json(response);
-        console.log('FIVE');
     } else {
         res.json('Error in posting note');
     }

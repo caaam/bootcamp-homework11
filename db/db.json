@@ -3,40 +3,5 @@
         "title": "Test Title",
         "text": "Test text",
         "id": "00demo"
-    },
-    {
-        "title": "foo",
-        "text": "bar",
-        "id": "4866e3c0-7670-11ec-bd88-cda632042a38"
-    },
-    {
-        "title": "bar",
-        "text": "foo",
-        "id": "f6d8a290-7670-11ec-9868-15f87b7f59de"
-    },
-    {
-        "title": "more",
-        "text": "or less",
-        "id": "92ab61d0-7671-11ec-912c-9fa910ebfd0f"
-    },
-    {
-        "title": "less",
-        "text": "is more",
-        "id": "c21bb320-7671-11ec-8fde-61a22f8fc750"
-    },
-    {
-        "title": "yeti",
-        "text": "is playing now",
-        "id": "07498210-7672-11ec-ae05-f1285aca3510"
-    },
-    {
-        "title": "riff",
-        "text": "rifft",
-        "id": "357e1f10-7672-11ec-874b-a77731fe5fab"
-    },
-    {
-        "title": "big",
-        "text": "ending",
-        "id": "fe330ab0-7672-11ec-8a4c-0dfef64ad46c"
     }
 ]
