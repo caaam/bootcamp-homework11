@@ -12,20 +12,26 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-const writeToFile = (destination, content) =>
+const writeToFile = (destination, content) => 
     fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
-        err ? console.error(err) : console.info(`\nData written to ${destination}`)
+        err ? console.error(err) : fs.readFile(destination, (err, data) => {
+            if (err) throw (err);
+            console.log(JSON.parse(data));
+            console.log("laststop");
+            
+        })
     );
 
 const readAndAppend = (content, file) => {
+    console.log('TWO');
     fs.readFile(file, 'utf8', (err, data) => {
         if (err) {
             console.error(err);
         } else {
+            console.log('THREE');
             const parsedData = JSON.parse(data);
             parsedData.push(content);
             writeToFile(file, parsedData);
-            console.log('did an read and apprehend');
         }
     });
 };
@@ -47,7 +53,7 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-    console.log(req.body);
+    console.log("FOUR");
 
     const { title, text } = req.body;
 
@@ -66,14 +72,10 @@ app.post('/api/notes', (req, res) => {
         };
 
         res.json(response);
-        console.log('did a post');
+        console.log('FIVE');
     } else {
         res.json('Error in posting note');
     }
-
-    app.get('/api/notes', (req, res) => {
-        res.json(dbData);
-    });
 });
 
 app.listen(PORT, () =>
